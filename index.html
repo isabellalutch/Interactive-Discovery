@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hidden Treasure</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header>
+<h2>THE HIDDEN TREASURE</h2>
+<button onclick="restartGame()">Start Over</button>
+    </header>
+
+    <main>
+
+
+    <section id="intro" class="scene active">
+    <div class="paper intro-page">
+
+    <p class="subtitle">CCT360: INTERACTIVE DESIGN ASSIGNMENT</p>
+
+    <img src="intro.jpg"
+    alt="A mysterious treasure island"
+    class="main-image">
+
+    <h1>The Hidden Treasure</h1>
+
+<p> A hidden treasure is buried somewhere on an island.</p>
+<p>An explorer left behind an old map, but three important pieces are missing.</p>
+
+<p>Your mission is to explore the island, solve the clues, and discover the treasure.</p>
+<button onclick="showScene('map')"> Begin Adventure </button>
+
+</div>
+</section>
+
+<section id="map" class="scene">
+    <div class="paper">
+
+<p class="subtitle">CHOOSE YOUR PATH</p>
+<h1>The Island Map</h1>
+<p>Three locations are hiding pieces of the map. Explore them in any order to collect all three fragments.</p>
+
+<div class="treasure-map">
+<img src="map.jpg"
+alt="Treasure island map"
+class="map-background">
+
+<button class="map-location jungle"
+onclick="showScene('jungle')">
+Jungle
+</button>
+
+<button class="map-location cave"
+onclick="showScene('cave')">
+Cave
+</button>
+
+<button class="map-location ship"
+onclick="showScene('ship')">
+Shipwreck
+</button>
+
+<button class="map-location temple"
+id="templeButton"
+onclick="enterTemple()">
+Temple (Locked)
+</button>
+
+</div>
+
+<div class="inventory">
+<h3>Your Collection</h3>
+<p id="progress">Map fragments: 0 / 3</p>
+<p id="collectedItems">
+No fragments collected yet.
+</p>
+</div>
+
+<p id="mapMessage" class="message"> Collect all three fragments to unlock the temple.</p>
+
+</div>
+</section>
+
+
+<section id="jungle" class="scene">
+<div class="paper">
+
+<p class="subtitle">LOCATION ONE</p>
+<h1>The Whispering Jungle</h1>
+
+<img src="jungle.jpg"
+alt="A mysterious jungle"
+class="location-image">
+
+<p>You enter a jungle filled with large trees and eery sounds.</p>
+
+<p>Attached to an old tree is a note:</p>
+
+<div class="clue">
+"To find your way, seek the object
+that guides lost travellers."
+</div>
+
+<h3>Which object will you examine?</h3>
+
+<div class="choices">
+
+<button onclick="jungleChoice('leaf')">
+<img src="leaf.jpg"
+alt=""
+class="choice-image">
+Leaf
+</button>
+
+<button onclick="jungleChoice('compass')">
+<img src="compass.jpg"
+alt=""
+class="choice-image">
+Compass
+</button>
+
+<button onclick="jungleChoice('flower')">
+<img src="flower.jpg"
+alt=""
+class="choice-image">
+Flower
+</button>
+
+</div>
+
+<p id="jungleResult" class="result"
+aria-live="polite"></p>
+
+<button class="back-button"
+onclick="showScene('map')">
+Back to Map
+</button>
+
+</div>
+</section>
+
+
+<section id="cave" class="scene">
+<div class="paper">
+
+<p class="subtitle">LOCATION TWO</p>
+<h1>The Echoing Cave</h1>
+
+<img src="cave.jpg"
+alt="An ancient cave"
+class="location-image">
+
+<p>Deep inside the cave, you find an ancient stone door.</p>
+
+<p>There seems to be a riddle carved into the stone:</p>
+
+<div class="clue">
+"I have hands but cannot clap.
+I have a face but cannot smile.
+What am I?"
+</div>
+
+<h3>Solve the riddle</h3>
+
+<div class="answer-box">
+<input type="text"
+id="riddleAnswer"
+placeholder="Enter your answer">
+
+<button onclick="checkRiddle()">
+Submit
+</button>
+</div>
+
+<p id="caveResult" class="result"
+aria-live="polite"></p>
+
+<button class="back-button"
+onclick="showScene('map')">
+Back to Map
+</button>
+
+</div>
+</section>
+
+
+
+<section id="ship" class="scene">
+<div class="paper">
+
+<p class="subtitle">LOCATION THREE</p>
+<h1>The Forgotten Shipwreck</h1>
+
+<img src="shipwreck.jpg"
+alt="An abandoned shipwreck"
+class="location-image">
+
+<p>Along the shore, you discover an abandoned pirate ship.</p>
+
+<p>Inside the captain's cabin are three mysterious treasure chests.</p>
+
+<div class="clue">
+"The missing fragment rests
+in the direction of the setting sun."
+</div>
+
+<h3>Which chest will you open?</h3>
+ <div class="choices">
+
+<button onclick="shipChoice('east')">
+<img src="east.jpg"
+alt=""
+class="choice-image">
+East
+</button>
+
+<button onclick="shipChoice('west')">
+<img src="west.jpg"
+alt=""
+class="choice-image">
+West
+</button>
+
+<button onclick="shipChoice('north')">
+<img src="north.jpg"
+alt=""
+class="choice-image">
+North
+</button>
+
+</div>
+
+<p id="shipResult" class="result"
+aria-live="polite"></p>
+
+<button class="back-button"
+onclick="showScene('map')">
+Back to Map
+</button>
+
+</div>
+</section>
+
+
+<section id="temple" class="scene">
+<div class="paper">
+
+<div id="templePuzzle">
+
+<p class="subtitle">THE FINAL LOCATION</p>
+<h1>The Ancient Temple</h1>
+
+<img src="temple.jpg"
+alt="An ancient hidden temple"
+class="location-image">
+
+<p>You have collected all three missing map fragments!</p>
+
+<p>The completed map leads you to an ancient temple hidden in the mountains.</p>
+
+<div class="clue">Only those who remember their journey may enter. What guided you through the jungle?"
+</div>
+
+<h3>Choose the correct answer</h3>
+
+<div class="choices">
+
+<button onclick="finalChoice('compass')">
+Compass
+</button>
+
+<button onclick="finalChoice('flower')">
+Flower
+</button>
+
+<button onclick="finalChoice('anchor')">
+Anchor
+</button>
+
+</div>
+
+<p id="templeResult" class="result"
+aria-live="polite"></p>
+
+<button class="back-button"
+onclick="showScene('map')">
+Back to Map
+</button>
+
+</div>
+
+<div id="treasureEnding" class="hidden">
+
+<p class="subtitle">ADVENTURE COMPLETE</p>
+
+<h1>You Found the Treasure!</h1>
+
+<img src="treasure.jpg"
+alt="A chest filled with treasure"
+class="main-image">
+
+<p>The ancient doors slowly open, revealing a chest filled with gold and precious gemstones.</p>
+
+<div class="clue">
+"The greatest treasure belongs
+to those who stay curious."
+</div>
+
+<p>
+Congratulations!
+You have completed the treasure hunt.
+</p>
+
+<button onclick="restartGame()">
+Play Again
+</button>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+    | THE HIDDEN TREASURE | 
+    </footer>
+
+</body>
+</html>

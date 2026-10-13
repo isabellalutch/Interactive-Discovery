@@ -1,0 +1,392 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #344333;
+    color: #35291c;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+header {
+    background-color: #253327;
+    color: #eedab2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 6%;
+}
+
+header h2 {
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: normal;
+}
+
+header button {
+    background-color: transparent;
+    border: 1px solid #b7a37d;
+    color: #eedab2;
+    font-size: 13px;
+}
+
+main {
+    min-height: 85vh;
+    padding: 40px 20px;
+}
+
+.scene {
+    display: none;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.scene.active {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.paper {
+    background-color: #e9d9b4;
+    border: 10px solid #c8b184;
+    outline: 1px solid #a28a5d;
+    outline-offset: -20px;
+
+    padding: 50px;
+    min-height: 570px;
+    text-align: center;
+
+    box-shadow: 0 12px 40px #18201670;
+}
+
+.intro-page {
+    padding-top: 60px;
+}
+
+h1 {
+    font-size: 52px;
+    font-weight: normal;
+    color: #513a22;
+    margin: 20px 0;
+}
+
+h3 {
+    color: #513a22;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 16px auto;
+}
+
+.subtitle {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #80623b;
+    font-weight: bold;
+}
+
+button {
+    font-family: Georgia, serif;
+    background-color: #465a3b;
+    color: #fff1d0;
+    border: 2px solid #465a3b;
+    padding: 13px 22px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #6a794c;
+    transform: translateY(-2px);
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #a46a25;
+    outline-offset: 3px;
+}
+
+.back-button {
+    margin-top: 30px;
+    background-color: transparent;
+    color: #465a3b;
+}
+
+.back-button:hover {
+    color: white;
+}
+
+.main-image {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    object-fit: contain;
+
+    margin: 25px auto;
+    border: none;
+}
+
+.location-image {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: 300px;
+    object-fit: cover;
+
+    margin: 25px auto;
+    border: 6px solid #b9a175;
+}
+
+.treasure-map {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 320px;
+    margin: 30px auto;
+
+    border: 5px solid #b69c6e;
+    overflow: hidden;
+}
+
+.map-background {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.map-location {
+    position: absolute;
+    background-color: #f0dfb8;
+    color: #37291c;
+    border: 2px solid #745b35;
+    border-radius: 8px;
+
+    padding: 10px;
+    min-width: 95px;
+    font-size: 14px;
+}
+
+.map-location:hover {
+    background-color: #fff0cd;
+    color: #37291c;
+}
+
+.jungle {
+    top: 15%;
+    left: 13%;
+}
+
+.cave {
+    top: 15%;
+    right: 13%;
+}
+
+.ship {
+    bottom: 15%;
+    left: 13%;
+}
+
+.temple {
+    bottom: 15%;
+    right: 13%;
+}
+
+
+.inventory {
+    background-color: #d7c39a;
+    border: 2px solid #ad956b;
+    padding: 15px;
+    max-width: 450px;
+    margin: 25px auto;
+}
+
+.inventory h3 {
+    margin-top: 5px;
+}
+
+.inventory p {
+    margin: 5px auto;
+}
+
+.message {
+    font-style: italic;
+    color: #6b5032;
+}
+
+.clue {
+    background-color: #d8c59d;
+    border-left: 5px solid #84653d;
+    padding: 22px;
+    max-width: 550px;
+    margin: 25px auto;
+
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.choices {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px auto;
+}
+
+.choices button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 120px;
+}
+
+.choice-image {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.result {
+    color: #465a3b;
+    font-weight: bold;
+    min-height: 30px;
+}
+
+.answer-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px auto;
+}
+
+input {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    padding: 12px;
+
+    border: 2px solid #9b8156;
+    background-color: #fff7e5;
+}
+
+footer {
+    text-align: center;
+    color: #cdbb93;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    header h2 {
+        font-size: 12px;
+    }
+
+    header button {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .paper {
+        padding: 35px 18px;
+        border-width: 6px;
+        outline-offset: -12px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .main-image {
+        height: 210px;
+    }
+
+    .location-image {
+        height: 220px;
+    }
+
+    .treasure-map {
+        height: 300px;
+    }
+
+    .map-location {
+        min-width: 75px;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .jungle {
+        left: 5%;
+    }
+
+    .cave {
+        right: 5%;
+    }
+
+    .ship {
+        left: 5%;
+    }
+
+    .temple {
+        right: 5%;
+    }
+
+    .choices button {
+        flex: 1 1 120px;
+    }
+
+    .choice-image {
+        width: 55px;
+        height: 55px;
+    }
+
+    .clue {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+}
+
+#cave .location-image {
+    max-width: 300px;
+    height: 250px;
+    object-fit: contain;
+}
+
+
+#intro h1 {
+    font-size: 42px;
+}
+
+#intro p {
+    font-size: 14px;
+    line-height: 1.6;
+}
